@@ -17,7 +17,8 @@ const searchResults = [
     size: "32.4 MB",
     downloads: "1B+ downloads",
     rating: 4.5,
-    description: "Connect with friends, share photos and videos, and discover content from creators worldwide.",
+    description:
+      "Connect with friends, share photos and videos, and discover content from creators worldwide.",
     icon: "https://same-assets.com/62f3486c6a8b8b84c1d68d38/android_icon_instagram.png",
   },
   {
@@ -28,7 +29,8 @@ const searchResults = [
     size: "30.2 MB",
     downloads: "1B+ downloads",
     rating: 4.2,
-    description: "Listen to music and podcasts from millions of creators around the world.",
+    description:
+      "Listen to music and podcasts from millions of creators around the world.",
     icon: "https://same-assets.com/62f3486c6a8b8b84c1d68d38/android_icon_spotify.png",
   },
   {
@@ -50,7 +52,8 @@ const searchResults = [
     size: "22.1 MB",
     downloads: "5B+ downloads",
     rating: 4.3,
-    description: "Fast, simple, and secure messaging with friends and family around the world.",
+    description:
+      "Fast, simple, and secure messaging with friends and family around the world.",
     icon: "https://same-assets.com/62f3486c6a8b8b84c1d68d38/android_icon_whatsapp.png",
   },
   {
@@ -61,7 +64,8 @@ const searchResults = [
     size: "41.3 MB",
     downloads: "2B+ downloads",
     rating: 4.5,
-    description: "Watch and create short videos with special effects, trending sounds, and more.",
+    description:
+      "Watch and create short videos with special effects, trending sounds, and more.",
     icon: "https://same-assets.com/62f3486c6a8b8b84c1d68d38/android_icon_tiktok.png",
   },
   {
@@ -72,7 +76,8 @@ const searchResults = [
     size: "74.9 MB",
     downloads: "1B+ downloads",
     rating: 4.5,
-    description: "Explore a delicious puzzle through hundreds of challenging levels.",
+    description:
+      "Explore a delicious puzzle through hundreds of challenging levels.",
     icon: "https://same-assets.com/62f3486c6a8b8b84c1d68d38/android_icon_candycrush.png",
   },
   {
@@ -94,9 +99,10 @@ const searchResults = [
     size: "10.5 MB",
     downloads: "100M+ downloads",
     rating: 4.0,
-    description: "A smaller, lighter version of Spotify that works on all phones.",
+    description:
+      "A smaller, lighter version of Spotify that works on all phones.",
     icon: "https://same-assets.com/62f3486c6a8b8b84c1d68d38/android_icon_spotify.png",
-  }
+  },
 ];
 
 // Helper function to render star rating
@@ -108,19 +114,44 @@ const renderStarRating = (rating: number) => {
   return (
     <div className="flex items-center">
       {[...Array(fullStars)].map((_, i) => (
-        <svg key={`star-${i}`} className="w-4 h-4 text-yellow-400 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <svg
+          key={`star-${i}`}
+          className="w-4 h-4 text-yellow-400 fill-current"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+        >
           <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
         </svg>
       ))}
       {hasHalfStar && (
-        <svg className="w-4 h-4 text-yellow-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-          <path fill="currentColor" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27z" />
-          <path fill="white" d="M12 17.27L12 5 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27z" />
+        <svg
+          className="w-4 h-4 text-yellow-400"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+        >
+          <path
+            fill="currentColor"
+            d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27z"
+          />
+          <path
+            fill="white"
+            d="M12 17.27L12 5 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27z"
+          />
         </svg>
       )}
       {[...Array(emptyStars)].map((_, i) => (
-        <svg key={`empty-star-${i}`} className="w-4 h-4 text-yellow-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-          <path fill="none" stroke="currentColor" strokeWidth="2" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+        <svg
+          key={`empty-star-${i}`}
+          className="w-4 h-4 text-yellow-400"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+        >
+          <path
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
+          />
         </svg>
       ))}
       <span className="ml-1 text-xs text-gray-500">{rating.toFixed(1)}</span>
@@ -128,16 +159,23 @@ const renderStarRating = (rating: number) => {
   );
 };
 
-export default function SearchPage({ searchParams }: { searchParams: { q?: string } }) {
-  const searchQuery = searchParams.q || '';
+export default async function SearchPage({
+  searchParams,
+}: {
+  searchParams: { q?: string };
+}) {
+  // Properly await the search params object
+  const params = await Promise.resolve(searchParams);
+  const searchQuery = params.q || "";
 
   // Filter apps based on search query
   // In a real app, this would be a backend API call
   const filteredApps = searchQuery
-    ? searchResults.filter(app =>
-        app.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        app.developer.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        app.description.toLowerCase().includes(searchQuery.toLowerCase())
+    ? searchResults.filter(
+        (app) =>
+          app.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          app.developer.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          app.description.toLowerCase().includes(searchQuery.toLowerCase())
       )
     : searchResults;
 
@@ -161,7 +199,10 @@ export default function SearchPage({ searchParams }: { searchParams: { q?: strin
                   <SearchIcon className="h-4 w-4" />
                 </div>
               </div>
-              <Button type="submit" className="bg-violet-600 hover:bg-violet-700 rounded-full px-6">
+              <Button
+                type="submit"
+                className="bg-violet-600 hover:bg-violet-700 rounded-full px-6"
+              >
                 Search
               </Button>
             </form>
@@ -170,13 +211,11 @@ export default function SearchPage({ searchParams }: { searchParams: { q?: strin
           {/* Search Results */}
           <div className="mb-4">
             <h1 className="text-2xl font-bold mb-2">
-              {searchQuery
-                ? `Search Results for "${searchQuery}"`
-                : "All Apps"
-              }
+              {searchQuery ? `Search Results for "${searchQuery}"` : "All Apps"}
             </h1>
             <p className="text-muted-foreground">
-              {filteredApps.length} {filteredApps.length === 1 ? 'app' : 'apps'} found
+              {filteredApps.length} {filteredApps.length === 1 ? "app" : "apps"}{" "}
+              found
             </p>
           </div>
 
@@ -185,10 +224,10 @@ export default function SearchPage({ searchParams }: { searchParams: { q?: strin
             {filteredApps.map((app) => (
               <div
                 key={app.id}
-                className="flex gap-4 p-4 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:shadow-md transition-all"
+                className="flex gap-4 p-4 rounded-xl bg-white border border-slate-200 hover:shadow-md transition-all"
               >
                 <div className="shrink-0">
-                  <div className="h-16 w-16 rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-700">
+                  <div className="h-16 w-16 rounded-2xl overflow-hidden border border-slate-200">
                     <Image
                       src={app.icon}
                       alt={`${app.name} icon`}
@@ -196,6 +235,7 @@ export default function SearchPage({ searchParams }: { searchParams: { q?: strin
                       height={64}
                       className="object-cover"
                       unoptimized
+                      crossOrigin="anonymous"
                     />
                   </div>
                 </div>
@@ -203,13 +243,23 @@ export default function SearchPage({ searchParams }: { searchParams: { q?: strin
                 <div className="flex-1 min-w-0">
                   <div className="flex justify-between items-start">
                     <div>
-                      <Link href={`/app/${app.id}`} className="hover:text-violet-600 transition-colors">
-                        <h3 className="font-semibold text-base truncate">{app.name}</h3>
+                      <Link
+                        href={`/apps/${app.id}`}
+                        className="hover:text-violet-600 transition-colors"
+                      >
+                        <h3 className="font-semibold text-base truncate">
+                          {app.name}
+                        </h3>
                       </Link>
-                      <p className="text-sm text-muted-foreground">{app.developer}</p>
+                      <p className="text-sm text-muted-foreground">
+                        {app.developer}
+                      </p>
 
                       <div className="flex items-center gap-2 mt-1">
-                        <Badge variant="outline" className="text-xs font-normal">
+                        <Badge
+                          variant="outline"
+                          className="text-xs font-normal"
+                        >
                           {app.category}
                         </Badge>
                         {renderStarRating(app.rating)}
@@ -222,7 +272,9 @@ export default function SearchPage({ searchParams }: { searchParams: { q?: strin
                   </div>
 
                   <div className="mt-3 flex justify-between items-center">
-                    <div className="text-xs text-muted-foreground">{app.size} • {app.downloads}</div>
+                    <div className="text-xs text-muted-foreground">
+                      {app.size} • {app.downloads}
+                    </div>
                     <Button
                       size="sm"
                       variant="default"
@@ -253,9 +305,12 @@ export default function SearchPage({ searchParams }: { searchParams: { q?: strin
                   d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
                 />
               </svg>
-              <h3 className="mt-2 text-lg font-medium text-gray-900 dark:text-gray-100">No results found</h3>
-              <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">
-                We couldn't find any apps matching your search. Try using different keywords.
+              <h3 className="mt-2 text-lg font-medium text-gray-900">
+                No results found
+              </h3>
+              <p className="mt-1 text-sm text-gray-500">
+                We couldn't find any apps matching your search. Try using
+                different keywords.
               </p>
             </div>
           )}
